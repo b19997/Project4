@@ -29,20 +29,19 @@ var em = function (val){
 
 var http = function(val) {
     var points = [];
-    for(var i = 0; i < val.length; i++){
-        if(val[i] == "@") {
-           for(var j = i; j < (val.length + i); j++){
-               points.push(val[j]);
-           }
-    }
+    for(var i = (0, 4); i < val.length; i++){
+        if(val[i] === "https:") {
+            return ("This does start with http or https")
+    }else {
 }
-if (points.length === 0){
-      console.log("This does not start with an http or https");
-    return i+1;
+
+      return("This does not start with an http or https"); i+1;
     }
+
 };//end of http
 
-/*Title-case a string (split into words, then uppercase the first letter of each word)*/
+/*Title-case a string (split into words, then uppercase the first
+letter of each word)*/
 // make up credit for loop project 2 and mutator project 3
 var string = function (val){
     for(var i = 0; val.length; i++){
@@ -57,7 +56,39 @@ var string = function (val){
          };
      }; 
 
-};
+};// end of string
+
+
+
+
+
+
+ /* Number
+Format a number to use a specific number of decimal places, as for 
+money: 2.1 → 2.10*/
+var specific = function(number){
+	  var i = parseFloat(number);
+	      if(isNaN(i)) { i = 0.00; 
+	      }
+	        var minus = '';
+	          if(i < 0) { minus = '-'; 
+	          }
+	             i = Math.abs(i);
+	             i = parseInt((i + .005) * 100);
+	             i = i / 100;
+	             s = new String(i);
+	               if(s.indexOf('.') < 0) { s += '.00'; 
+	               }
+	               if(s.indexOf('.') == (s.length - 2)) { s += '0'; 
+	               }
+	                s = minus + s;
+	                  return s;
+}; // end of specific
+
+
+
+
+
 
     
     
@@ -70,7 +101,7 @@ var string = function (val){
        "em":em,
        "http":http,
        "string":string,
-       "j":j
+       "specific":specific,
      };
  
  
@@ -78,7 +109,8 @@ var string = function (val){
  
 // main code 
 var newlib = new library();
- console.log ("is this a number? " + newlib.str(7));
- console.log(" Does the email contain " + newlib.em("aaa@bbb.ccc"));
- console.log("is this a url " + newlib.http("https://xda-developers.com"));
- console.log("I have split a string into two words " + newlib.string + "I have capitalized the first letter of each word " + newlib.j("title case"));
+console.log ("is this a number? " + newlib.str(7));
+console.log(" There is only one @ symbol and it's index is  " + newlib.em("aaa@bbb.ccc"));
+console.log("is this a url? " + newlib.http("xda-developers.com"));
+console.log("I have split a string into two words " + newlib.string("This string"));
+console.log(newlib.specific(2));
