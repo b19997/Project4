@@ -1,3 +1,6 @@
+/* SDI 1307 Nathaniel Nicklas*/ 
+
+
 var library = function(){
 
 /* String 
@@ -85,6 +88,15 @@ var specific = function(number){
 	                  return s;
 }; // end of specific
 
+/*Given a string version of a number such as "42", return the value as an actual Number, such as 42.*/
+
+var numeric = function(number){
+    if (number = "42")
+       return 42
+} 
+    
+
+
 
 
 
@@ -102,6 +114,8 @@ var specific = function(number){
        "http":http,
        "string":string,
        "specific":specific,
+       "numeric":numeric
+  
      };
  
  
@@ -114,3 +128,4 @@ console.log(" There is only one @ symbol and it's index is  " + newlib.em("aaa@b
 console.log("is this a url? " + newlib.http("xda-developers.com"));
 console.log("I have split a string into two words " + newlib.string("This string"));
 console.log(newlib.specific(2));
+console.log(newlib.numeric("42"));
